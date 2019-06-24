@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      .labels {
+        margin: 2% 10%;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      label {
+        cursor: pointer;
+        padding: 1% 20%;
+      }
+
+      iframe {
+        margin: 0 10% 10%;
+        box-sizing: border-box;
+        border: 2px solid black;
+        width: 80%;
+        height: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="labels">
+      <label>
+        <input type="radio" name="environment" checked value="https://siddarth-sso.read-testing.inkling.com/read/">
+          Testing
+        </input>
+      </label>
+      <label>
+        <input type="radio" name="environment" value="https://siddarth-sso.read.inkling.com/read/">
+          Stable
+        </input>
+      </label>
+    </div>
+
+    <script>
+      Array.from(document.querySelectorAll('input')).forEach(input => {
+        input.addEventListener('click', (evt) => {
+          document.querySelector('iframe').src = evt.target.value;
+        })
+      });
+    </script>
+
+    <iframe src="https://siddarth-sso.read-testing.inkling.com/read/" />
+  </body>
+</html>
